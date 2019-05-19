@@ -44,6 +44,9 @@
     <Compile Include="Deck.cs" />
     <Compile Include="DictionaryUsage.cs" />
     <Compile Include="GenericSorter.cs" />
+    <Compile Include="Generics\GenerixExtension\ListExtension.cs" />
+    <Compile Include="Generics\IPrinter.cs" />
+    <Compile Include="Generics\Printer.cs" />
     <Compile Include="ICard.cs" />
     <Compile Include="PokerCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
