@@ -1,8 +1,13 @@
-using Buisness;
+﻿using Business;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BuisnessTests
+namespace BusinessTest
 {
     [TestClass]
     public class PersonTest
@@ -26,6 +31,7 @@ namespace BuisnessTests
 
             using (var serialized = serializeExample.SerializeToXml(person))
             {
+                serialized.Seek(0, SeekOrigin.Begin);
                 deserializedPerson = serializeExample.DeserializeFromXml(serialized);
             }
 
