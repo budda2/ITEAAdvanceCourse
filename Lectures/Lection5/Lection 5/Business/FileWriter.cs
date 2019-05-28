@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business
 {
@@ -25,7 +21,7 @@ namespace Business
             }
         }
 
-        public void Wrote(Stream stream)
+        public void Write(Stream stream)
         {
             using (var file = File.Open(_filePath, FileMode.OpenOrCreate))
             {

@@ -29,6 +29,7 @@ namespace Business
 
             var result = new MemoryStream();
             serializer.Serialize(result, person);
+            result.Seek(0, SeekOrigin.Begin);
             return result;
         }
 
