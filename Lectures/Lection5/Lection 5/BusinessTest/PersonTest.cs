@@ -1,65 +1,64 @@
 ﻿using Business;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessTest
 {
     [TestClass]
     public class PersonTest
     {
-        [TestMethod]
-        public void ShouldSerializeAndDeserializeXmlCorrectly()
+        SerializeExample _serializer;
+        Person _person;
+
+        [TestInitialize]
+        public void TestInitialize()
         {
-            //Arrange
-            var fileWriter = new FileWriter();
-            var serializeExample = new SerializeExample();
-            var person = new Person
+            //here we write initialization that is commot for all the tests.
+            _serializer = new SerializeExample();
+            _person = new Person
             {
                 Id = Guid.NewGuid(),
                 InsuranceNumber = 1,
                 Name = "Mykhailo",
                 Surname = "Haodeo"
             };
+        }
+
+        [ClassInitialize]
+        public static void ClassInitialize(TestContext context)
+        {
+            //here we would write initialization code that would be executed ony once for all the tests inside this class
+        }
+
+        [TestMethod]
+        public void ShouldSerializeAndDeserializeXmlCorrectly()
+        {
+            //Arrange
 
             //Act
             Person deserializedPerson = null;
 
-            using (var serialized = serializeExample.SerializeToXml(person))
+            using (var serialized = _serializer.SerializeToXml(_person))
             {
-                deserializedPerson = serializeExample.DeserializeFromXml(serialized);
+                deserializedPerson = _serializer.DeserializeFromXml(serialized);
             }
 
             //Assert
-            Assert.AreEqual(person, deserializedPerson, "Deserialized person is different from the origin.");
+            Assert.AreEqual(_person, deserializedPerson, "Deserialized person is different from the origin.");
         }
 
         [TestMethod]
         public void ShouldSerializeAndDeserializeJsonCorrectly()
         {
             //Arrange
-            var fileWriter = new FileWriter();
-            var serializeExample = new SerializeExample();
-            var person = new Person
-            {
-                Id = Guid.NewGuid(),
-                InsuranceNumber = 1,
-                Name = "Mykhailo",
-                Surname = "Haodeo"
-            };
-
             //Act
             Person deserializedPerson = null;
 
-            var serialized = serializeExample.SerializeToJson(person);
-            deserializedPerson = serializeExample.DeserializeFromJson(serialized);
+            var serialized = _serializer.SerializeToJson(_person);
+            deserializedPerson = _serializer.DeserializeFromJson(serialized);
 
             //Assert
-            Assert.AreEqual(person, deserializedPerson, "Deserialized person is different from the origin.");
+            Assert.AreEqual(_person, deserializedPerson, "Deserialized person is different from the origin.");
         }
     }
 }

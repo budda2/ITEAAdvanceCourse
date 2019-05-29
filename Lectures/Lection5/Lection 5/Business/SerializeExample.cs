@@ -13,13 +13,21 @@ namespace Business
     {
         public string SerializeToJson(Person person)
         {
-            var json = JsonConvert.SerializeObject(person);
+            var setting = new JsonSerializerSettings
+            {
+                TypeNameHandling = TypeNameHandling.All
+            };
+            var json = JsonConvert.SerializeObject(person, setting);
             return json;
         }
 
         public Person DeserializeFromJson(string json)
         {
-            var deserialized = JsonConvert.DeserializeObject<Person>(json);
+            var setting = new JsonSerializerSettings
+            {
+                TypeNameHandling = TypeNameHandling.All
+            };
+            var deserialized = JsonConvert.DeserializeObject<Person>(json, setting);
             return deserialized;
         }
 
