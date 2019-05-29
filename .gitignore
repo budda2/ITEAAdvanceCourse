@@ -21,6 +21,9 @@ x64/
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
+#Nuget packages folder
+[Pp]ackages
+
 *_i.c
 *_p.c
 *_i.h
