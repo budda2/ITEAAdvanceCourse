@@ -1,0 +1,24 @@
+﻿<Window x:Class="Lection6Console.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lection6Console"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="411.09" Width="250.188">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <Button Width="70"
+                    Height="40"
+                    Click="Freeze">Freeze</Button>
+            <TextBlock x:Name="Text">Text</TextBlock>
+            <Button Width="70"
+                    Height="40"
+                    Click="NotFreeze">NotFreeze</Button>
+            <TextBlock x:Name="Text1">Text</TextBlock>
+            <Button Width="70"
+                    Height="40"
+                    Click="ShowLockingExample">LockExample</Button>
+        </StackPanel>
+    </Grid>
+</Window>
