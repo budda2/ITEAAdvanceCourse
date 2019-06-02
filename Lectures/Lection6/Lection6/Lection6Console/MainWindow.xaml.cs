@@ -36,15 +36,36 @@ namespace Lection6Console
 
         private async void NotFreeze(object sender, RoutedEventArgs e)
         {
-            Text1.Text = "Start";
-            var longRunning = new HardLongOperations();
-            await longRunning.RunPerformanceHeavyInBackground();
-            
-            //use to do nothing for some period of time.
-            //note: having this awaited will let the thread to do another work while "doing nothing"
-            await Task.Delay(100);
+            try
+            {
+                Text1.Text = "Start";
+                var longRunning = new HardLongOperations();
+                await longRunning.RunPerformanceHeavyInBackground();
 
-            Text1.Text = "Finished";
+                //use to do nothing for some period of time.
+                //note: having this awaited will let the thread to do another work while "doing nothing"
+                await Task.Delay(100);
+
+                Text1.Text = "Finished";
+            }
+            catch
+            {
+
+            }
+        }
+
+        private async void LoadGoogle(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var googleLoader = new GoogleLoader();
+                var res = await googleLoader.Load();
+                TextGoogle.Text = res;
+            }
+            catch(Exception ex)
+            {
+                var t = ex.Message;
+            }
         }
 
         private async void ShowLockingExample(object sender, RoutedEventArgs e)
@@ -53,5 +74,14 @@ namespace Lection6Console
 
             await usage.UseLockExample();
         }
+
+        private async void DownloadRepo(object sender, RoutedEventArgs e)
+        {
+            var loader = new GoogleLoader();
+
+            await loader.DownloadAdvanceRepo();
+        }
+
+        
     }
 }

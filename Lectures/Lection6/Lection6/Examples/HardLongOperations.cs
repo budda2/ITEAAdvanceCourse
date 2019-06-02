@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Examples
@@ -11,6 +12,7 @@ namespace Examples
             {
                 //emulating that each loop iteration takes 1ms
                 Thread.Sleep(1);
+                throw new InvalidOperationException();
             }
         }
 

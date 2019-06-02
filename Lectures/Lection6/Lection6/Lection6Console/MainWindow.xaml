@@ -19,6 +19,14 @@
             <Button Width="70"
                     Height="40"
                     Click="ShowLockingExample">LockExample</Button>
+            <Button Width="70"
+                    Height="40"
+                    Click="LoadGoogle">LoadGoogleAsync</Button>
+            <TextBlock x:Name="TextGoogle">T</TextBlock>
+
+            <Button Width="70"
+                    Height="40"
+                    Click="DownloadRepo">DownloadRepo</Button>
         </StackPanel>
     </Grid>
 </Window>

@@ -12,6 +12,10 @@ namespace Examples
     {
         public void Example()
         {
+            
+            //ThreadStart del = new ThreadStart(OperationToBePerformedinBackground);
+            //var thread = new Thread(del);
+            //simmilar as above two lines
             var thread = new Thread(() => OperationToBePerformedinBackground());
             thread.IsBackground = true;
             thread.Start();

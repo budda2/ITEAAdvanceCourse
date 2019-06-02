@@ -15,7 +15,7 @@ namespace Examples
         {
             lock(_lockObject)
             {
-                Thread.Sleep(5000);
+                Thread.Sleep(50);
             }
         }
 
@@ -23,7 +23,7 @@ namespace Examples
         {
             lock(_lockObject)
             {
-                Thread.Sleep(5000);
+                Thread.Sleep(50);
             }
         }
     }

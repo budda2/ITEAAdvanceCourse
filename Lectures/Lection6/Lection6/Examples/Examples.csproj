@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AsyncDelegatesExample.cs" />
+    <Compile Include="GoogleLoader.cs" />
     <Compile Include="HardLongOperations.cs" />
     <Compile Include="LockExample.cs" />
     <Compile Include="ParallelExample.cs" />

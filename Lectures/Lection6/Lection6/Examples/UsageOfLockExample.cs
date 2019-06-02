@@ -8,14 +8,20 @@ namespace Examples
 {
     public class UsageOfLockExample
     {
-        public async Task UseLockExample()
+        public async Task<bool> UseLockExample()
         {
             var lockExample = new LockExample();
 
             var doTask = Task.Run(() => lockExample.Do());
             var doTask1 = Task.Run(() => lockExample.DoSomething());
 
-            await Task.WhenAll(doTask, doTask1);
+            //if (DateTime.Now.DayOfWeek == DayOfWeek.Monday)
+            //{
+            //    await Task.WhenAll(doTask, doTask1);
+            //    await Task.WhenAny(doTask, doTask1);
+            //    return false;
+            //}
+            return true;
         }
     }
 }
