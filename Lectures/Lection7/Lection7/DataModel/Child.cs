@@ -1,7 +1,10 @@
-﻿namespace DataModel
+﻿using System;
+
+namespace DataModel
 {
     public class Child : Person
     {
-        Pet Pet { get; set; }
+        public Guid PetId => Pet.Id;
+        public Pet Pet { get; set; }
     }
 }

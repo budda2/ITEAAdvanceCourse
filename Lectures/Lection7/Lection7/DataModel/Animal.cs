@@ -2,7 +2,7 @@
 
 namespace DataModel
 {
-    public class Animal
+    public class Animal : Entity
     {
         DateTime DateOfBirth { get; set; }
     }
